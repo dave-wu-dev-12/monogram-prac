@@ -1,9 +1,10 @@
 .login-button {
   background-color: orange;
-  border-radius: 10px;
+  border-radius: 50px;
   padding: 1em;
   width: 25%;
   border: none;
+  color: white;
 }
 
 .login-button:hover {

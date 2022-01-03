@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
+import Header from "../../Components/Header/Header";
+import SubHeader from "../../Components/SubHeader/SubHeader";
+
 import "./Login.css";
 
 function Login() {
@@ -13,8 +16,15 @@ function Login() {
 
   return (
     <div className="loginPageContainer">
-      <div className="loginPanelContainer">
-        <div className="credentialFormContainer">
+      <div className="loginFormContainer">
+        <div>
+          <Header styleName="loginHeader" text="Login"></Header>
+          <SubHeader
+            styleName="loginSubHeader"
+            text="Please sign in to Continue"
+          ></SubHeader>
+        </div>
+        <div className="loginForm">
           <Input
             styleName={"login-input"}
             type={"text"}
@@ -36,6 +46,10 @@ function Login() {
           ></Button>
         </div>
       </div>
+      <SubHeader
+        styleName="signUpSubheader"
+        text="Don't have an account? Sign up"
+      ></SubHeader>
     </div>
   );
 }
