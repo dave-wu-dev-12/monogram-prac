@@ -3,15 +3,19 @@ import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import Header from "../../Components/Header/Header";
 import SubHeader from "../../Components/SubHeader/SubHeader";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./Login.css";
 
 function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const validateLogin = () => {
-    console.log("login attempt");
+    console.log(`user login with name: ${userName}`);
+    dispatch({ type: "login", userName: userName });
   };
 
   return (
@@ -40,16 +44,20 @@ function Login() {
             onChange={setPassword}
           ></Input>
           <Button
-            styleName={"login-button"}
+            styleName={
+              userName.trim() == ""
+                ? "login-button disabled"
+                : "login-button active"
+            }
             onClick={validateLogin}
             text={"Login"}
           ></Button>
         </div>
+        <SubHeader
+          styleName="signUpSubheader"
+          text="Don't have an account? Sign up"
+        ></SubHeader>
       </div>
-      <SubHeader
-        styleName="signUpSubheader"
-        text="Don't have an account? Sign up"
-      ></SubHeader>
     </div>
   );
 }

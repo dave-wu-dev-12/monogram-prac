@@ -2,12 +2,22 @@
   background-color: orange;
   border-radius: 50px;
   padding: 1em;
-  width: 25%;
+  width: fit-content;
   border: none;
   color: white;
 }
 
-.login-button:hover {
-  background-color: rgb(250, 199, 104);
+.login-button.active:hover {
+  background-color: rgb(71, 50, 10);
   cursor: pointer;
+}
+
+.disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.disabled:hover {
+  background-color: none;
+  cursor: not-allowed;
 }
