@@ -5,12 +5,14 @@ import Header from "../../Components/Header/Header";
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-
+import StarRating from "../../Components/StarRating/StarRating";
 import "./Login.css";
 
 function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedStar, setSelectedStar] = useState(0);
+
   const dispatch = useDispatch();
 
   const validateLogin = () => {
@@ -58,6 +60,14 @@ function Login() {
           text="Don't have an account? Sign up"
         ></SubHeader>
       </div>
+      <h1>Rate this site</h1>
+      <h3>
+        <StarRating
+          count={5}
+          selectedStar={selectedStar}
+          onSelect={setSelectedStar}
+        />
+      </h3>
     </div>
   );
 }
